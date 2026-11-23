@@ -20,8 +20,8 @@ function App() {
           <div className=''>
             <SelectDemo/>
             <Input
-            titulo = "Título"
-            holder = "Insira informação"
+            titulo = "Descrição"
+            holder = "Insira uma descrição"
             />
           </div>
       <div className='flex justify-center items-start w-11/12 h-2/12'>
