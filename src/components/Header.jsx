@@ -1,4 +1,4 @@
-import { IoPersonCircle } from "react-icons/io5";
+import LoginButton from "./LoginButton.jsx";
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
             <a href="" className="hover:scale-110 duration-200 ease-in">Criar</a>
             <a href="" className="hover:scale-110 duration-200 ease-in">Consultar</a>
           </nav>
-          <a id="login" className="text-blue-800 bg-blue-700 flex gap-2 justify-center items-center p-2 rounded-xl"> <h3 className="text-2xl text-white font-bold ">Login</h3> <IoPersonCircle  className="text-4xl text-white"/></a>
+          <LoginButton></LoginButton>
         </article>
       </main>
     </>
