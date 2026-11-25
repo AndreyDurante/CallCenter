@@ -1,13 +1,32 @@
+import { useState } from 'react';
 import './App.css'
 import Header from './components/Header'
 import Input from './components/Input'
 import { SelectDemo } from './components/SelectDemo'
+import criarChamado from "./services/CriarChamado.js";
 
 function App() {
-    const handleSubmit = (event) => {
-    event.preventDefault();
-    alert('Chamado enviado!');
-  };
+
+  const [tipoChamado, setTipoChamado] = useState("");
+  const [descricao, setDescricaoChamado] = useState("");
+
+
+  const handleSubmit = async (event) => {
+      event.preventDefault();
+
+      try {
+        await criarChamado({
+          titulo: tipoChamado,
+          descricao,
+        });
+
+        setTipoChamado("");
+        setDescricaoChamado("");
+        alert("Chamado criado!");
+      } catch (erro) {
+        alert(erro.message);
+      }
+    };
   return (
     <>
     <section id='criar' className='h-screen bg-blue-200 flex justify-center items-center pt-12'>
@@ -18,10 +37,15 @@ function App() {
         </article>
         <form onSubmit={handleSubmit} className='flex flex-col gap-5 justify-around w-full ps-8 h-12/12'>
           <div className=''>
-            <SelectDemo/>
+            <SelectDemo
+            tipoChamado={tipoChamado}
+            setTipoChamado={setTipoChamado}
+            />
             <Input
             titulo = "Descrição"
             holder = "Insira uma descrição"
+            descricao={descricao}
+            setDescricaoChamado={setDescricaoChamado}
             />
           </div>
       <div className='flex justify-center items-start w-11/12 h-2/12'>

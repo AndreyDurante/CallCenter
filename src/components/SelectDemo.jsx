@@ -1,5 +1,3 @@
-
-
 const items = [
   { label: "Selecione o tipo de chamado", value: null },
   { label: "Suporte de informática", value: "suporte-informatica" },
@@ -12,7 +10,7 @@ const items = [
   { label: "Materiais de escritório", value: "materiais-escritorio" },
   { label: "Solicitação administrativa", value: "solicitacao-administrativa" },
 ]
-export function SelectDemo() {
+export function SelectDemo({ tipoChamado, setTipoChamado }) {
   return (
     <div className="flex w-11/12 flex-col gap-2">
       <label htmlFor="ticket-type" className="ps-1 text-xl">
@@ -21,7 +19,8 @@ export function SelectDemo() {
       <select
         id="ticket-type"
         name="ticket-type"
-        defaultValue=""
+        defaultValue={tipoChamado}
+        onChange={(event) => setTipoChamado(event.target.value)}
         className="w-full bg-gray-200 border-2 border-solid border-gray-400 h-12 rounded-xl ps-3.5"
       >
         {items.map((item) => (
