@@ -5,7 +5,7 @@ const CallSchema = new mongoose.Schema({
     titulo : {type: String, required: true},
     descricao : {type: String, required: true},
     status_concluido: {type: Boolean}
-}, { versionKey: false })
+}, { versionKey: false });
 
 const call = mongoose.model("calls", CallSchema);
 
