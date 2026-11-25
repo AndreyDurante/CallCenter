@@ -2,9 +2,22 @@ import { FaArrowLeft } from "react-icons/fa";
 import PendingCalls from "../components/PendingCalls"
 import { useEffect, useState } from "react";
 import listarChamado from "../services/ListarChamado";
+import excluirChamado from "../services/ExcluirChamado";
 
 const ConsultarPage = () => {
-    const [ChamadosListados, setChamadosListados] = useState([])
+    const [ChamadosListados, setChamadosListados] = useState([]);
+    const handleExcluirChamado = async (id) => {
+        try {
+            await excluirChamado(id);
+
+            setChamadosListados((chamadosAtuais) =>
+            chamadosAtuais.filter((chamado) => chamado._id !== id)
+            );
+        } catch (erro) {
+            console.error("Erro ao excluir chamado:", erro);
+            alert("Não foi possível excluir o chamado.");
+        }
+    };
     return (
         <>
         <main className="h-screen bg-gray-200 flex justify-center items-center flex-col w-full">
@@ -24,8 +37,11 @@ const ConsultarPage = () => {
 
                 {ChamadosListados.map((chamado) => (
                     <PendingCalls
+                        key={chamado._id}
                         callType={chamado.titulo}
                         description={chamado.descricao}
+                        idPassado={chamado._id}
+                        aoExcluir={handleExcluirChamado}
                     />
                 ))
                 }

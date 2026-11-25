@@ -23,7 +23,7 @@ class CallController {
     static async ExcluirChamados (req, res) {
         const id = req.params.id;
         try{
-            await call.findByIdAndDelete(id, req.body);
+            await call.findByIdAndDelete(id);
             res.status(200).json({ message: "Chamado excluído com sucesso"} )
         } catch (erro) {
             res.status(500).json({ message : `${erro.message} - Falha ao excluir chamado`})

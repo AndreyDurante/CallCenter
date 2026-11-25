@@ -2,7 +2,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { BsFillPencilFill } from "react-icons/bs";
 
-const PendingCalls = ({callType, description}) => {
+const PendingCalls = ({callType, description, idPassado, aoExcluir}) => {
     return(
         <>
         <main className="bg-gray-300 h-3/12 w-11/12 my-2 mt-7 mx-auto flex justify-start flex-col gap-4 rounded-xl">
@@ -12,13 +12,13 @@ const PendingCalls = ({callType, description}) => {
                     <p>{description}</p>
                 </article>
                 <div className="flex shrink-0 items-center gap-2">
-                    <button type="button" aria-label="Concluir chamado" className="flex size-10 shrink-0 items-center justify-center rounded bg-blue-300">
+                    <button type="button" aria-label="Concluir chamado" className="flex size-10 shrink-0 items-center justify-center rounded bg-blue-300 cursor-pointer">
                         <FaRegCheckCircle className="size-5"/>
                     </button>
-                    <button type="button" aria-label="Editar chamado" className="flex size-10 shrink-0 items-center justify-center rounded bg-blue-300">
+                    <button type="button" aria-label="Editar chamado" className="flex size-10 shrink-0 items-center justify-center rounded bg-blue-300 cursor-pointer">
                         <BsFillPencilFill className="size-5"/>
                     </button>
-                    <button type="button" aria-label="Excluir chamado" className="flex size-10 shrink-0 items-center justify-center rounded bg-blue-300">
+                    <button onClick={() => aoExcluir(idPassado)} aria-label="Excluir chamado" className="flex size-10 shrink-0 items-center justify-center rounded bg-blue-300 cursor-pointer">
                         <FaTrash className="size-5"/>
                     </button>
                 </div>
