@@ -43,10 +43,11 @@ const ConsultarPage = () => {
 
     return (
         <>
-        <main className="h-screen bg-gray-200 flex justify-center items-center flex-col w-full">
-        <a href="/" className="text-2xs w-8/12 flex items-center gap-2"><FaArrowLeft /> Voltar</a>
-            <h3 className="text-4xl p-5">Chamados pendentes</h3>
-            <section id="lista-chamados" className="rounded-2xl bg-blue-400 w-8/12 min-h-8/12">
+        <main className="min-h-screen w-full bg-gray-200 px-4 pb-8 pt-24 sm:px-6 sm:pt-28">
+          <div className="mx-auto w-full max-w-5xl">
+            <a href="/" className="inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm font-medium text-gray-700 hover:bg-gray-300 focus-visible:outline-2 focus-visible:outline-blue-700 sm:text-base"><FaArrowLeft /> Voltar</a>
+            <h3 className="py-5 text-2xl font-semibold sm:py-7 sm:text-4xl">Chamados pendentes</h3>
+            <section id="lista-chamados" className="min-h-40 rounded-2xl bg-blue-400 p-3 sm:p-5">
                 {ChamadosListados.map((chamado) => (
                     <PendingCalls
                         key={chamado._id}
@@ -60,6 +61,7 @@ const ConsultarPage = () => {
                 }
                 
             </section>
+          </div>
         </main>
         </>
     )

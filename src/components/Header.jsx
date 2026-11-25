@@ -3,15 +3,15 @@ import LoginButton from "./LoginButton.jsx";
 const Header = () => {
   return (
     <>
-      <main className="fixed left-1/2 -translate-x-1/2 top-5 h-1/12 w-5/12 mx-auto">
-        <article className="flex justify-between bg-white/50 backdrop-blur-md h-full items-center p-7 rounded-2xl">
-          <div id="logo" className="text-white font-bold bg-blue-700 p-2 rounded-xl text-2xl">CallCenter<span className="text-blue-500">Pro</span></div>
-          <nav className="flex gap-12 text-xl">
+      <header className="fixed left-0 right-0 top-0 z-20 px-3 pt-3 sm:px-6 sm:pt-5">
+        <article className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 rounded-2xl bg-white/90 p-3 shadow-sm backdrop-blur-md sm:gap-6 sm:px-6 sm:py-4">
+          <div id="logo" className="shrink-0 rounded-xl bg-blue-700 p-2 text-lg font-bold text-white sm:text-2xl">CallCenter<span className="text-blue-300">Pro</span></div>
+          <nav className="flex items-center gap-2 text-sm sm:gap-6 sm:text-lg">
             <a href="/consultar" className="hover:scale-110 duration-200 ease-in">Consultar</a>
           </nav>
           <LoginButton></LoginButton>
         </article>
-      </main>
+      </header>
     </>
   );
 };

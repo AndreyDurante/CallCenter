@@ -12,16 +12,16 @@ const items = [
 ]
 export function SelectDemo({ tipoChamado, setTipoChamado }) {
   return (
-    <div className="flex w-11/12 flex-col gap-2">
-      <label htmlFor="ticket-type" className="ps-1 text-xl">
+    <div className="flex w-full flex-col gap-2">
+      <label htmlFor="ticket-type" className="ps-1 text-base font-medium sm:text-lg">
         Tipo de chamado
       </label>
       <select
         id="ticket-type"
         name="ticket-type"
-        defaultValue={tipoChamado}
+        value={tipoChamado}
         onChange={(event) => setTipoChamado(event.target.value)}
-        className="w-full bg-gray-200 border-2 border-solid border-gray-400 h-12 rounded-xl ps-3.5"
+        className="h-12 w-full rounded-xl border-2 border-solid border-gray-400 bg-white px-3.5 text-base"
       >
         {items.map((item) => (
           <option

@@ -1,15 +1,15 @@
 const Input = ({titulo, holder, setDescricaoChamado, descricao}) => {
     return (
         <>
-        <main className="flex flex-col justify-start w-11/12 ">
-            <article className="p-1 text-xl">
+        <div className="flex w-full flex-col justify-start">
+            <label className="p-1 text-base font-medium sm:text-lg">
                 {titulo}
-            </article>
-            <input type="text" placeholder={holder} className="w-full bg-gray-200 border-2 border-solid border-gray-400 h-12 rounded-xl p-3.5"
+            </label>
+            <input type="text" placeholder={holder} className="h-12 w-full rounded-xl border-2 border-solid border-gray-400 bg-white px-3.5 text-base"
             value={descricao}
             onChange={(event) => setDescricaoChamado(event.target.value)}
             />
-        </main>
+        </div>
         </>
     )
 }
