@@ -3,7 +3,7 @@ import { FaRegCheckCircle, FaTrash } from "react-icons/fa";
 import { BsFillPencilFill } from "react-icons/bs";
 import atualizarChamado from "../services/AtualizarChamado";
 
-const PendingCalls = ({ callType, description, idPassado, aoExcluir, aoAtualizar }) => {
+const PendingCalls = ({ callType, description, idPassado, aoExcluir, aoAtualizar, aoConcluir }) => {
   const [editando, setEditando] = useState(false);
   const [descricaoEditada, setDescricaoEditada] = useState(description);
   const [salvando, setSalvando] = useState(false);
@@ -58,7 +58,7 @@ const PendingCalls = ({ callType, description, idPassado, aoExcluir, aoAtualizar
         </div>
 
         <div className="flex shrink-0 items-center justify-end gap-2 sm:justify-center">
-          <button type="button" aria-label="Concluir chamado" className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-blue-300 cursor-pointer hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+          <button onClick={() => aoConcluir(idPassado)}type="button" aria-label="Concluir chamado" className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-blue-300 cursor-pointer hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
             <FaRegCheckCircle className="size-5" />
           </button>
           <button type="button" aria-label="Editar descrição" onClick={iniciarEdicao} className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-blue-300 cursor-pointer hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
