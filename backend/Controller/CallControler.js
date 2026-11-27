@@ -35,8 +35,16 @@ class CallController {
             const chamadoNovo = await call.create(req.body);
             res.status(200).json({ message: "Chamado cadastrado com sucesso", call: chamadoNovo } )
         } catch (erro) {
-            res.status(500).json({ message : `${erro.message} - Falha ao cadastrar chamado`})
-        }
+            if (erro.name === "ValidationError") {
+                return res.status(400).json({
+                message: `${erro.message} - Verifique os dados do chamado`,
+                });
+            }
+
+            return res.status(500).json({
+                message: `${erro.message} - Falha ao cadastrar chamado`,
+            });
+            }
     }
 
 }

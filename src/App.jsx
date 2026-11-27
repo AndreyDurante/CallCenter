@@ -12,9 +12,13 @@ function App() {
 
 
   const handleSubmit = async (event) => {
-      event.preventDefault();
-
-      try {
+    event.preventDefault();
+    
+    try {
+      if (descricao.length <= 4 || descricao.length > 50) {
+            alert("Número de caracteres inválido");
+            return
+        }
         await criarChamado({
           titulo: tipoChamado,
           descricao,

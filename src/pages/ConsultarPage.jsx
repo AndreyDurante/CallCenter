@@ -61,19 +61,25 @@ const ConsultarPage = () => {
           <div className="mx-auto w-full max-w-5xl">
             <a href="/" className="inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm font-medium text-gray-700 hover:bg-gray-300 focus-visible:outline-2 focus-visible:outline-blue-700 sm:text-base"><FaArrowLeft /> Voltar</a>
             <h3 className="py-5 text-2xl font-semibold sm:py-7 sm:text-4xl">Chamados pendentes</h3>
-            <section id="lista-chamados" className="min-h-40 rounded-2xl bg-blue-400 p-3 sm:p-5">
-                {ChamadosListados.filter((chamadoCerto)=> chamadoCerto.status_concluido !== true).map((chamado) => (
-                    <PendingCalls
-                        key={chamado._id}
-                        callType={chamado.titulo}
-                        description={chamado.descricao}
-                        idPassado={chamado._id}
-                        aoExcluir={handleExcluirChamado}
-                        aoAtualizar={handleAtualizarDescricao}
-                        aoConcluir={handleConcluirChamado}
-                    />
-                ))
-                }
+            <section id="lista-chamados" className="min-h-40 rounded-2xl bg-blue-400 p-3 sm:p-5 flex items-center">
+                
+                {ChamadosListados.filter((chamado) => !chamado.status_concluido).length === 0 ? (
+                    <p className="bg-blue-200 h-full flex items-center justify-center text-3xl w-6/12 p-2 rounded-xl mx-auto">Não há chamados pendentes.</p>
+                ) : (
+                    ChamadosListados
+                        .filter((chamado) => !chamado.status_concluido)
+                        .map((chamado) => (
+                        <PendingCalls
+                            key={chamado._id}
+                            callType={chamado.titulo}
+                            description={chamado.descricao}
+                            idPassado={chamado._id}
+                            aoExcluir={handleExcluirChamado}
+                            aoAtualizar={handleAtualizarDescricao}
+                            aoConcluir={handleConcluirChamado}
+                        />
+                        ))
+                )}
                 
             </section>
           </div>
